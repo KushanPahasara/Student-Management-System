@@ -1,10 +1,22 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home';
+import CreateStudent from './pages/CreateStudent';
+import ShowStudent from './pages/ShowStudent';
+import EditStudent from './pages/EditStudent';
+import DeleteStudent from './pages/DeleteStudent';
 
 function App() {
   return (
-    <h1 className="bg-blue-600 text-white text-center">
-      Hello world!
-    </h1>
+    <Routes>
+      <Route path='/' element={} />
+      <Route path='/students' element={} />
+      <Route path='' element={} />
+      <Route path='' element={} />
+      <Route path='' element={} />
+      
+      
+    </Routes>
   )
 }
 
