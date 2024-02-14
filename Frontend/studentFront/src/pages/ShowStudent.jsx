@@ -5,7 +5,7 @@ import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 
 function ShowStudent() {
-  const [book, setBook] = useState({});
+  const [student, setStudent] = useState({ _id: '', name: '', age: '', gender: '' });
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
 
@@ -14,7 +14,7 @@ function ShowStudent() {
     axios
       .get(`http://localhost:8070/student/get/${id}`)
       .then((respose) => {
-        setBook(respose.data);
+        setStudent(respose.data.student);
         setLoading(false);
       })
       .catch((error) => {
@@ -33,17 +33,22 @@ function ShowStudent() {
         <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4'>
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>Id</span>
-            <span>{book._id}</span>
+            <span>{student._id}</span>
 
           </div> 
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>Name</span>
-            <span>{book.name}</span>
+            <span>{student.name || 'N/A'}</span>
 
           </div>
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>Age</span>
-            <span>{book.age}</span>
+            <span>{student.age}</span>
+
+          </div>
+          <div className='my-4'>
+            <span className='text-xl mr-4 text-gray-500'>Gender</span>
+            <span>{student.gender}</span>
 
           </div>
         </div> 
